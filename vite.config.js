@@ -19,7 +19,16 @@ export default defineConfig(({ mode }) => {
       "process.env.FIREBASE_MESSAGING_SENDER_ID": JSON.stringify(
         env.FIREBASE_MESSAGING_SENDER_ID
       ),
-      "process.env.FIREBASE_APP_ID": JSON.stringify(env.FIREBASE_APP_ID),
+      "process.env.YOUTUBE_API_KEY": JSON.stringify(env.YOUTUBE_API_KEY),
+      "process.env.YOUTUBE_WORK_API_KEY": JSON.stringify(
+        env.YOUTUBE_WORK_API_KEY
+      ),
+      "process.env.YOUTUBE_WORK_CLIENT_ID": JSON.stringify(
+        env.YOUTUBE_WORK_CLIENT_ID
+      ),
+      "process.env.YOUTUBE_WORK_CLIENT_SECRET_KEY": JSON.stringify(
+        env.YOUTUBE_WORK_CLIENT_SECRET_KEY
+      ),
     },
     plugins: [react()],
   };
