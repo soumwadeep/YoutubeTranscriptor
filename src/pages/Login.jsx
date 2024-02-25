@@ -9,14 +9,15 @@ const Login = () => {
   const navigate = useNavigate();
 
   const handleSignIn = async (e) => {
+    const scopes = ["https://www.googleapis.com/auth/youtube.force-ssl"];
+    provider.addScope(...scopes);
+
     await signInWithPopup(auth, provider)
       .then((result) => {
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
-        // console.log("Access token", token);
         const user = result.user;
-        // console.log("User Data", user);
-        //Add Data To Db
+
         const userRef = doc(db, "Users", user.email);
         setDoc(
           userRef,
