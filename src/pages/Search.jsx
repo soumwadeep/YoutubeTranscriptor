@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { getSubtitles, getVideoDetails } from "youtube-caption-extractor";
+import Swal from "sweetalert2";
+import { getSubtitles } from "youtube-captions-scraper";
 
 const Search = () => {
   const [url, setUrl] = useState("");
@@ -19,11 +20,20 @@ const Search = () => {
     try {
       const videoId = youtube_parser(url);
       if (videoId) {
-        const lang = "en"; // Optional, default is 'en' (English)
-        const subtitles = await getSubtitles({ videoID: videoId, lang });
-        setResult(subtitles);
+        getSubtitles({
+          videoID: videoId,
+          lang: "en",
+        }).then((captions) => {
+          console.log(captions);
+          setResult(captions);
+        });
       } else {
         console.error("Invalid URL");
+        Swal.fire(
+          "You Have Entered An Invalid URL",
+          "Please Enter A Valid Youtube Video's URl",
+          "error"
+        );
       }
     } catch (err) {
       console.error("Error fetching subtitles:", err);
