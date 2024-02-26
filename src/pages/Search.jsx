@@ -44,7 +44,7 @@ const Search = () => {
 
   return (
     <div>
-      <h1>Hello!</h1>
+      <h1>Welcome To Unoffcial Youtube Transcriptor!</h1>
       <form className="row g-3 sticky-top mt-1" onSubmit={handleSearch}>
         <div className="col-md-11">
           <label htmlFor="Url" className="visually-hidden">

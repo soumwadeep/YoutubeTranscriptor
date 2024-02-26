@@ -1,7 +1,7 @@
 import { auth, db } from "../components/FirebaseConfig";
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { doc, serverTimestamp, setDoc } from "firebase/firestore";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const Login = () => {
@@ -46,12 +46,17 @@ const Login = () => {
   };
   return (
     <main className="rounded shadow-lg mt-5 p-3">
-      <h1 className="text-center">Welcome To Youtube Transcriptor!</h1>
+      <h1 className="text-center">Welcome To Offcial Youtube Transcriptor!</h1>
       <p className="text-center">Login To Continue Using Our Services.</p>
       <button className="btn btn-info btn-lg shadow-lg" onClick={handleSignIn}>
         <img src="/googlelogo.png" className="logo" alt="google" />
         &nbsp; Sign in With Google
       </button>
+      <br />
+      <br />
+      <Link className="btn btn-success btn-lg" to="/search">
+        Try The Unofficial Youtube Transcriptor
+      </Link>
     </main>
   );
 };
